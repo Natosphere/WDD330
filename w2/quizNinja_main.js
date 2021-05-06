@@ -1,4 +1,6 @@
-alert('Welcome to Quiz Ninja!');
+
+
+
 
 
 const quiz = [
@@ -42,5 +44,9 @@ gameOver() {
 }
 }	
 	
+window.addEventListener("load", function() {
+	alert('Welcome to Quiz Ninja!');
+	game.start(quiz);
+})
 	
-game.start(quiz);
+	
