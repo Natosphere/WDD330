@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Team Assignment 1</title>
+
+	
+	
+</head>
+
+
+
+
+<body>
+
+	<input id= "input1" type="number">
+	<button id= "button1" onclick= "printFunction()">button</button>
+
+	
+	<button id= "button2" onclick= "function2()">button2</button>
+
+	
+	<input id= "input2" type="number">
+	<button id= "button3" onclick= "function3()">+</button>
+	<button id= "button3" onclick= "function4()">-</button>
+	<button id= "button3" onclick= "function5()">*</button>
+	
+	<div id= "div1"></div>
+
+	<script type="text/javascript">
+		
+		
+		function printFunction() {
+			var input = document.getElementById("input1").value;
+			document.getElementById("div1").innerHTML = input;
+		}
+		
+		function function2() {
+			var input = document.getElementById("input1").value;
+			var sum = 0;
+			var i
+			for (i = 0; i <= input; i++) {
+				sum = sum + i;
+			}
+			document.getElementById("div1").innerHTML = sum;
+		}
+		
+		function function3() {
+			var input1 = document.getElementById("input1").value;
+			var input2 = document.getElementById("input2").value;
+			
+			document.getElementById("div1").innerHTML = parseInt(input1) + parseInt(input2);
+			
+		}	
+		
+		function function4() {
+			var input1 = document.getElementById("input1").value;
+			var input2 = document.getElementById("input2").value;
+			
+			document.getElementById("div1").innerHTML = parseInt(input1) - parseInt(input2);
+			
+		}	
+		
+		function function5() {
+			var input1 = document.getElementById("input1").value;
+			var input2 = document.getElementById("input2").value;
+			
+			document.getElementById("div1").innerHTML = parseInt(input1) * parseInt(input2);
+			
+		}
+		
+		
+	</script>
+
+
+</body>
+</html>

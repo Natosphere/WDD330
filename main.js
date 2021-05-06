@@ -1,36 +1,32 @@
-const weekNumber = 3;
-
 const links = [
 	{
 		week: 1,
 		label: "Reading Exercises",
-		filename: ""
+		filename: "readingExercise.html"
 	},
 	{
 		week: 2,
 		label: "Reading Exercises",
-		filename: ""
+		filename: "quizNinja_index.html"
 	},
 	{
 		week: 2,
 		label: "Group Work",
-		filename: ""
-	},
-	{
-		week: 3,
-		label: "Reading Exercises",
-		filename: ""
-	},
-	{
-		week: 3,
-		label: "Group Work",
-		filename: ""
+		filename: "teamAssignment1.html"
 	}
 ]
 
+
+
+
+//------------------------------------------------------
+
+
+
+
 var j = 0;
 var i;
-for (i = 0; i < weekNumber; i++) {
+for (i = 0; i < getWeekNumber(); i++) {
 	var btn;
 
 	btn = document.createElement("ul");
@@ -53,7 +49,7 @@ for (i = 0; i < weekNumber; i++) {
 		btn.appendChild(li);
 		
 		var a = document.createElement("a");
-		a.href = links[j].filename;
+		a.href = "w" + (i+1) + "/" + links[j].filename;
 		a.innerHTML = links[j].label;
 		li.appendChild(a);
 		
@@ -85,5 +81,15 @@ for (k = 0; k < dropDowns.length; k++) {
 
 	});
 }
+
+function getWeekNumber() {
+	var weekNumber;
+	var i;
+	for (i = 0; i < links.length; i++) {
+		weekNumber = links[i].week;
+	}
+	return weekNumber;
+}
+
 
 
