@@ -65,21 +65,15 @@ const dropDowns = document.querySelectorAll(".dropDownList");
 var k;
 for (k = 0; k < dropDowns.length; k++) {
 	dropDowns[k].addEventListener('click', function() {
-		
-		var closedBool = true;
-		
 		if (this.style.height == "43px") {
 			this.style.height = (this.childElementCount * (38 + 5)) + "px";
 		} else {
 			this.style.height = 38 + 5 + "px";
 		}
-
 	});
 	
 	dropDowns[k].addEventListener('focusout', function() {
-
 		setTimeout(() => {this.style.height = 38 + 5 + "px"}, 100)   // slight delay so that you can actually use the link before the menu closes
-
 	});
 }
 
