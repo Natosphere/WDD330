@@ -1,8 +1,3 @@
-
-
-
-
-
 const quiz = [
 	{ name: "Superman", realName: "Clark Kent" },
 	{ name: "Wonder Woman", realName: "Diana Prince" },
@@ -44,7 +39,7 @@ gameOver() {
 }
 }	
 	
-window.addEventListener("load", function() {
+window.addEventListener("load", function() {      //doesn't work for some reason
 	alert('Welcome to Quiz Ninja!');
 	game.start(quiz);
 })
