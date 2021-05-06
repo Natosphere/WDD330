@@ -51,6 +51,7 @@ for (i = 0; i < getWeekNumber(); i++) {
 		var a = document.createElement("a");
 		a.href = "w" + (i+1) + "/" + links[j].filename;
 		a.innerHTML = links[j].label;
+		a.setAttribute("tabindex", "0")
 		li.appendChild(a);
 		
 		if (j + 1 >= links.length) {
@@ -76,9 +77,10 @@ for (k = 0; k < dropDowns.length; k++) {
 	});
 	
 	dropDowns[k].addEventListener('focusout', function() {
-
-		this.style.height = 38 + 5 + "px";
-
+						
+		if (this.classList.contains("focus-within")) {      // don't close menu if clicking within it.
+			this.style.height = 38 + 5 + "px";
+		}
 	});
 }
 
