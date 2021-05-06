@@ -26,7 +26,7 @@ const links = [
 
 var j = 0;
 var i;
-for (i = 0; i < getWeekNumber(); i++) {
+for (i = 0; i < getWeekNumber(); i++) {        // create the week sections
 	var btn;
 
 	btn = document.createElement("ul");
@@ -44,7 +44,7 @@ for (i = 0; i < getWeekNumber(); i++) {
 	li.appendChild(a);
 
 
-	for (j; links[j].week - 1 == i; j++) {
+	for (j; links[j].week - 1 == i; j++) {        // create the assignment sections
 		var li = document.createElement("li");
 		btn.appendChild(li);
 		
@@ -77,10 +77,9 @@ for (k = 0; k < dropDowns.length; k++) {
 	});
 	
 	dropDowns[k].addEventListener('focusout', function() {
-						
-		if (this.classList.contains("focus-within")) {      // don't close menu if clicking within it.
-			this.style.height = 38 + 5 + "px";
-		}
+
+		setTimeout(() => {this.style.height = 38 + 5 + "px"}, 100)   // slight delay so that you can actually use the link before the menu closes
+
 	});
 }
 
