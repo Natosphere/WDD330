@@ -13,6 +13,16 @@ const links = [
 		week: 2,
 		label: "Group Work",
 		filename: "teamAssignment1.html"
+	},
+	{
+		week: 3,
+		label: "Reading Exercises",
+		filename: "quizNinja_index.html"
+	},
+	{
+		week: 3,
+		label: "Group Work",
+		filename: "teamAssignment.html"
 	}
 ]
 
