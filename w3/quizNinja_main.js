@@ -74,9 +74,7 @@ const game = {
 
 view.start.addEventListener('click', () => game.start(quiz), false);
 
-//doesn't work for some reason
-alert('Welcome to Quiz Ninja!');
-game.start(quiz);
+
 
 
 	
