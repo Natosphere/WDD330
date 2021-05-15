@@ -1,8 +1,27 @@
 const quiz = [
 	{ name: "Superman", realName: "Clark Kent" },
 	{ name: "Wonder Woman", realName: "Diana Prince" },
-	{ name: "Batman", realName: "Bruce Wayne" }
+	{ name: "Batman", realName: "Bruce Wayne" },
+	{ name: "The Hulk",realName: "Bruce Banner" },
+	{ name: "Spider-man",realName: "Peter Parker" },
+	{ name: "Cyclops",realName: "Scott Summers" }
+	
 ];
+
+
+function random(a, b=1) {
+	if (b === 1) {
+		[a,b] = [b,a];
+	}
+	return Math.floor((b-a+1) * Math.random() + a)
+}
+
+function shuffle(array) {
+	for (let i = array.length; i; i--) {
+		let j = random(i)-1;
+		[array[i - 1], array[j]] = [array[j], array[i - 1]]
+	}
+}
 
 
 
@@ -14,6 +33,7 @@ const view = {
 	result: document.getElementById('result'),
 	info: document.getElementById('info'),
 	response: document.querySelector('#response'),
+	timer: document.querySelector('#timer strong'),
 	
 	show(element){
 			element.style.display = 'block';
@@ -38,12 +58,10 @@ const view = {
 		this.show(this.score, game.score);
 		this.show(this.result, "");
 		this.show(this.info, "");
-		this.resetForm();
 	},
 	
-	resetForm() {
-		this.response.answer.value = "";
-		this.response.answer.focus();
+	buttons(array) {
+		return array.map(value => `<button>${value}</button>`).join('');
 	},
 	
 	teardown() {
@@ -58,17 +76,24 @@ const view = {
 
 const game = {
 	start(quiz) {
+		console.log('start() invoked');
 		this.score = 0;
 		this.questions = [...quiz];
 		view.setup();
 		this.ask();
+		this.secondsRemaining = 20;
+		this.timer = setInterval(this.countdown, 1000);
 	},
 
 	ask(){
-		if (this.questions.length > 0) {
+		console.log('ask() invoked');
+		if (this.questions.length > 2) {
+			shuffle(this.questions);
 			this.question = this.questions.pop();
+			const options = [this.questions[0].realName, this.questions[1].realName, this.question.realName]; shuffle(options);
 			const question = `What is ${this.question.name}'s real name?`;
 			view.render(view.question, question);
+			view.render(view.response, view.buttons(options));
 		} else {
 			this.gameOver();
 		}
@@ -76,8 +101,8 @@ const game = {
 	},
 
 	check(event) {
-		event.preventDefault();
-		const response = view.response.answer.value;		
+		console.log('check() invoked');
+		const response = event.target.textContent;		
 		const answer = this.question.realName;
 
 		if (response === answer) {
@@ -87,20 +112,30 @@ const game = {
 		} else {
 			view.render(view.result, `Wrong! The correct answer was ${answer}`, {"class": "wrong"});
 		}
-		view.resetForm();
 		this.ask();
 	},
+	
+	
+	countdown() {
+		game.secondsRemaining--;
+		view.render(view.timer, game.secondsRemaining);
+		if(game.secondsRemaining < 0) {
+			game.gameOver();
+		}
+	},
+	
 
 	gameOver() {
+		console.log('gameOver() invoked');
 		view.show(view.start);
 		view.render(view.info,`Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
 		view.teardown();
+		clearInterval(this.timer);
 	}
 }
 
 view.start.addEventListener('click', () => game.start(quiz), false);
-view.response.addEventListener('submit', (event) => game.check(event), false);
-view.hide(view.response)
+view.response.addEventListener('click', (event) => game.check(event), false);
 
 
 
