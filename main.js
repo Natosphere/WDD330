@@ -37,7 +37,7 @@ const links = [
 	{
 		week: 5,
 		label: "Group Work",
-		filename: "hiking-start.html"
+		filename: "hiking.html"
 	}
 ]
 
