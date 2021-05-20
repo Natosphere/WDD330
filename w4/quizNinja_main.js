@@ -102,7 +102,7 @@ const game = {
 
 	check(event) {
 		console.log('check() invoked');
-		const response = event.target.textContent;		
+		const response = event.target.textContent;	
 		const answer = this.question.realName;
 
 		if (response === answer) {
