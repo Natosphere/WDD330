@@ -34,8 +34,3 @@ const hikeList = [
   }
 ];
 
-
-
-export default function hikes() {
-	return hikeList;
-}
