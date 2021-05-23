@@ -36,6 +36,11 @@ const links = [
 	},
 	{
 		week: 5,
+		label: "Reading Assignment",
+		filename: "quizNinja_index.html"
+	},
+	{
+		week: 5,
 		label: "Group Work",
 		filename: "hiking.html"
 	}
