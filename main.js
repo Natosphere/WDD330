@@ -43,6 +43,11 @@ const links = [
 		week: 5,
 		label: "Group Work",
 		filename: "hiking.html"
+	},
+	{
+		week: 6,
+		label: "ToDo List",
+		filename: "NathanWheewlright_TodoAssignment.html"
 	}
 ]
 
