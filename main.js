@@ -47,7 +47,7 @@ const links = [
 	{
 		week: 6,
 		label: "ToDo List",
-		filename: "NathanWheewlright_TodoAssignment.html"
+		filename: "NathanWheelwright_TodoAssignment.html"
 	}
 ]
 
