@@ -83,6 +83,8 @@ body {
 
 #main {
 	max-width: 500px;
+	margin: auto;
+	border: solid lightgrey;
 	background:
         linear-gradient(-90deg, rgba(0, 0, 0, .03) 1px, transparent 1px),
         linear-gradient(rgba(0, 0, 0, .03) 1px, transparent 1px),
