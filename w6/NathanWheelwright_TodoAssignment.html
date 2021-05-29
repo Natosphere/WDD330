@@ -24,25 +24,45 @@
 		
 		
 		<div id="main">
-			<h2>Todos</h2>
-			<div id="list">
-				<div class="listItem checkbox__input" id="cardinal" style="display:none;">
-					<input class="checkbox" type="checkbox" name="checkbox" onclick="updateCount()">
-					<span class="checkbox__control">
-					  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
-						<path fill='none' stroke='grey' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
-					</span>
-					<input class="textField" type="text">
-					<div class="deleteButton" onclick="removeListItem(event)">
-						<svg class="deletemark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-						  <path class="checkmark__check" fill="none" stroke="grey" d="M16 16 36 36 M36 16 16 36" />
-						</svg>
+			<div id="topBar">
+				<h2>Todos</h2>
+				<div id="menuButton" onclick="toggleMenu()">
+					<svg viewBox="0 0 100 80" width="30" height="30">
+						<rect width="100" height="20" rx="8" fill="grey"></rect>
+						<rect y="30" width="100" height="20" rx="8" fill="grey"></rect>
+						<rect y="60" width="100" height="20" rx="8" fill="grey"></rect>
+					</svg>
+				</div>
+			</div>
+			<div id="menu" class="hiddenItem">
+				<input list="lists" name="listsList" placeholder="Choose or create list name"/>
+				<datalist id="lists">
+				</datalist>
+			
+			<button onclick="loadList()">Load</button>
+			<button onclick="saveList()">Save</button>
+			<button onclick="deleteList()">Delete</button>
+			</div>
+			<div id="itemList">
+				<div id="cardinal" class="listItemContainer hiddenItem" style="display: none;">
+					<div class="listItem">
+						<input class="checkbox" type="checkbox" name="checkbox" onclick="updateCount()">
+						<span class="checkbox__control">
+						  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' aria-hidden="true" focusable="false">
+							<path fill='none' stroke='grey' stroke-width='3' d='M1.73 12.91l6.37 6.37L22.79 4.59' /></svg>
+						</span>
+						<input class="textField" type="text">
+						<div class="deleteButton" onclick="removeListItem(event)">
+							<svg class="deletemark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+							  <path class="checkmark__check" fill="none" stroke="grey" d="M16 16 36 36 M36 16 16 36" />
+							</svg>
+						</div>
 					</div>
 				</div>
 				
 			</div>
 			<div id="add_item">
-				<div onclick="createListItem()"></div>
+				<div onclick="createListItem(event)" style="z-index:50;"></div>
 				<div>List Item</div>
 				<div id="taskCounter">0 Tasks Left</div>
 				<div id="filter">

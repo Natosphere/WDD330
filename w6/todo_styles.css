@@ -9,24 +9,6 @@
 	
 	
 	#main {
-		background:
-			linear-gradient(-90deg, rgba(0, 0, 0, .02) 1px, transparent 1px),
-			linear-gradient(rgba(0, 0, 0, .02) 1px, transparent 1px),
-			linear-gradient(-90deg, rgba(0, 0, 0, .02) 1px, transparent 1px),
-			linear-gradient(rgba(0, 0, 0, .02) 1px, transparent 1px),
-			linear-gradient(transparent 3px, transparent 3px, transparent 78px, transparent 78px),
-			linear-gradient(-90deg, transparent 1px, transparent 1px),
-			linear-gradient(-90deg, transparent 3px, transparent 3px, transparent 78px, transparent 78px),
-			linear-gradient(transparent 1px, transparent 1px), transparent;
-		background-size:
-			10px 10px,
-			10px 10px,
-			10px 10px,
-			10px 10px,
-			10px 10px,
-			10px 10px,
-			10px 10px,
-			10px 10px;
 		margin: 5px;
 		border: solid lightgrey;
 	}
@@ -121,6 +103,10 @@ body {
         10px 10px;
 }
 
+#topBar {
+	display: flex;
+	position: relative;
+}
 
 #main h2 {
 	text-align: center;
@@ -128,13 +114,46 @@ body {
     height: 0.2em;
     line-height: .2em;
     color: grey;
+	width: 100%;
 }
+
+#menuButton {
+	position: absolute;
+    right: 0px;
+    margin: 17px;
+    height: 30px;
+    width: 30px;
+	-webkit-transition: transform 0.3s ease;
+			transition: transform 0.3s ease;
+}
+
+#menu {
+	display: flex;
+	padding: 10px;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	overflow: hidden;
+	height: 64px;
+	-webkit-transition: height 0.3s ease, padding 0.3s ease;
+			transition: height 0.3s ease, padding 0.3s ease;
+}
+
+#menu input {
+	flex: 1;
+	text-align: center;
+}
+
+#menu button {
+	min-width: var(--itemHeight);
+}
+
 
 #add_item {
 	height: var(--itemHeight);
 	color: #969696;
 	font-size: 1em;
 	display: flex;
+	z-index: 50;
 }
 
 #taskCounter {
@@ -177,7 +196,34 @@ body {
 
 
 .listItem {
-	display: flex
+	display: flex;
+	height: var(--itemHeight);
+    background: #f7f7f7de;
+    margin: 3px 8px 3px 8px;
+    border: solid 1px lightgrey;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+
+.listItemContainer {
+	overflow: hidden;
+	max-width: 600px;
+	height: 54px;
+	-webkit-transition: height 0.3s ease, width 0.3s ease;
+			transition: height 0.3s ease, width 0.3s ease, transform 0.3s ease-out;
+	
+}
+
+.hiddenItem {
+	height: 0px !important;
+	padding: 0px !important;
+	margin: 0px !important;
+}
+
+.deleteItem {
+	height: 0px;
+	transform: scale(0, 0);
 }
 
 .checkbox__control {    
@@ -196,16 +242,11 @@ body {
   position: absolute;
 }
 
-.checkbox__input {        
-	height: var(--itemHeight);
-    background: #f7f7f7de;
-    margin: .5em;
-    border-radius: 5px;
-    border: solid 1px lightgrey;
+.listItem {        
 }
-.checkbox__input > * {
+.listItem > * {
 }
-.checkbox__input .checkbox {
+.listItem .checkbox {
     opacity: 0;
     width: 2em;
     position: absolute;
@@ -213,13 +254,14 @@ body {
     margin: .75em;
 	z-index: 1;
 }
-.checkbox__input input:checked + .checkbox__control svg {
+.listItem input:checked + .checkbox__control svg {
   transform: scale(1);
 }
 
-.checkbox__input input:checked ~ input {
+.listItem input:checked ~ input {
 	text-decoration: line-through;
 }
+
 
 .textField {
 	float: left;
@@ -244,6 +286,10 @@ body {
     margin: .45em;
 	z-index: 1;
 	
+}
+
+.deleteButton svg {
+	pointer-events: none;
 }
 
 
