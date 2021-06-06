@@ -1,5 +1,7 @@
-const url = "https://spbooks.github.io/questions.json"
-fetch(url)
+const url = "https://natosphere.github.io/WDD330/w7/heroQuiz.json"
+fetch(url, {
+	mode: "no-cors"
+})
 .then(res => res.json()) 
 .then(quiz => {
 	view.start.addEventListener('click', () => game.start(quiz.questions), false);
@@ -132,10 +134,6 @@ const game = {
 		clearInterval(this.timer);
 	}
 }
-
-view.start.addEventListener('click', () => game.start(quiz), false);
-view.response.addEventListener('click', (event) => game.check(event), false);
-
 
 
 
