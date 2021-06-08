@@ -1,13 +1,12 @@
-/* 
-const url = "https://natosphere.github.io/WDD330/w7/heroQuiz.json"
+var quiz;
+const url = "https://spbooks.github.io/jsninja2/questions.json"
 fetch(url)
-.then(res => res.json()) 
+.then(res => res.json())
 .then(quiz => {
 	view.start.addEventListener('click', () => game.start(quiz.questions), false);
 	view.response.addEventListener('click', (event) => game.check(event), false); 
 });
- */
- 
+/* 
  const quiz = [
 	{ name: "Superman", realName: "Clark Kent" },
 	{ name: "Wonder Woman", realName: "Diana Prince" },
@@ -17,7 +16,7 @@ fetch(url)
 	{ name: "Cyclops",realName: "Scott Summers" }
 	
 ];
-
+ */
 
 function random(a, b=1) {
 	if (b === 1) {
