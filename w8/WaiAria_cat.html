@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang='en'>
+	<head>
+		<meta charset='utf-8'>
+		<meta name='WDD300' content='Nathan Wheelwright Pokedex'>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+		<title>Pokedex</title>
+		
+		<style>
+		
+			.draganddrop .mc {
+				text-align: center;
+			};
+		
+		</style>
+		
+		
+	</head>
+	<body>
+  
+		<div class="header">
+			<a href="#default" class="logo">Nathan Wheelwright</a>
+			<div class="header-right">
+				<a class="active" href="https://natosphere.github.io/WDD330/">Home</a>
+			</div>
+
+
+		<article id="ac3">
+			<h1>Wai-Aria? HAHA!</h1>
+			<h2 id="catHeading">Form Accessibility</h2>
+			
+			<img src="images/cat.png" id="cat" alt="WAI-ARIA Cat"> 
+			
+			<div class="content">
+				<p id="mouseContainer" class="mc">
+					<img src="images/computer-mouse.png" alt="mouse treat" id="mouse1" z-index='20' draggable="true">
+					<img src="images/computer-mouse.png" alt="mouse treat" id="mouse2" z-index='20' draggable="true">
+					<img src="images/computer-mouse.png" alt="mouse treat" id="mouse3" z-index='20' draggable="true">
+				</p>
+			</div>
+		</article>
+
+
+	
+		<script>
+		
+			var mice = document.querySelectorAll('#mouseContainer img');
+			
+			var mouse = null;
+			for (i = 0; i < mice.length; i++) {
+				mouse = mice[i];
+				mouse.addEventListener('dragstart', function (event) {
+					event.dataTransfer.setData("text/plain", this.id);
+				})
+			};
+			var cat = document.getElementById('cat');
+			cat.addEventListener("dragover", function(event) {
+				event.preventDefault();
+			});
+			cat.addEventListener("drop", function(event) {
+				var mouseHash = {
+					mouse1: 'NOMNOMNOM',
+					mouse2: 'Meow',
+					mouse3: 'Purrrrr ...'
+				};
+				var catHeading = document.querySelector('#catHeading');
+				var mouseID = event.dataTransfer.getData("text/plain");
+				catHeading.innerHTML = mouseHash[mouseID];
+				
+				var mousey = document.querySelector('#' + mouseID)
+				mousey.parentNode.removeChild(mousey);
+				event.preventDefault();
+			})
+			
+			
+			
+		</script>
+
+
+	</body>
+</html>

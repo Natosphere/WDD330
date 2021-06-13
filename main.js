@@ -58,6 +58,16 @@ const links = [
 		week: 7,
 		label: "Team Activity",
 		filename: "hiking.html"
+	},
+	{
+		week: 8,
+		label: "Reading Assignment",
+		filename: "WaiAria_cat.html"
+	},
+	{
+		week: 8,
+		label: "Team Activity",
+		filename: "swapi.html"
 	}
 ]
 
