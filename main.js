@@ -68,6 +68,16 @@ const links = [
 		week: 8,
 		label: "Team Activity",
 		filename: "swapi.html"
+	},
+	{
+		week: 9,
+		label: "Reading Assignment",
+		filename: "quizNinja.html"
+	},
+	{
+		week: 9,
+		label: "Team Activity",
+		filename: "index-START.html"
 	}
 ]
 
