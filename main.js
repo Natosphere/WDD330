@@ -72,7 +72,7 @@ const links = [
 	{
 		week: 9,
 		label: "Reading Assignment",
-		filename: "quizNinja.html"
+		filename: "quizNinja_index.html"
 	},
 	{
 		week: 9,
