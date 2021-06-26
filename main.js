@@ -78,6 +78,16 @@ const links = [
 		week: 9,
 		label: "Team Activity",
 		filename: "index-START.html"
+	},
+	{
+		week: 10,
+		label: "Reading Assignment",
+		filename: "w10_notes.html"
+	},
+	{
+		week: 10,
+		label: "Team Activity",
+		filename: "quakeApp.html"
 	}
 ]
 

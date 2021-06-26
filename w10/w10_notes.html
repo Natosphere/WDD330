@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8" />
+        <title>Local Quakes</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+
+    <body>
+		<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><u>Form Validation</u></strong></p>
+		<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Why?</p>
+		<ul style="list-style-type: disc;margin-left:28.25px;">
+			<li>Get the correct data in the correct format</li>
+			<li>Protect the data</li>
+			<li>Protect the server</li>
+		</ul>
+		<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Methods:</p>
+		<ul style="list-style-type: disc;">
+			<li>Built-in html form validation<ol style="list-style-type: circle;">
+					<li>Required, minlength, maxlength, min/max, type, pattern</li>
+					<li>css :valid/:invalid pseudo-class, :out-of-range</li>
+					<li>Regex: pattern=&rdquo;[Bb]anana|[Cc]herry&rdquo;</li>
+				</ol>
+			</li>
+			<li>JavaScript (constraint validation api)<ol style="list-style-type: circle;">
+					<li>.validity<ul style="list-style-type: square;">
+							<li>PatternMismatch, tooLong, maxLength, tooShort, rangeOverflow, rangeUnderflow, typeMismatch, valid, valueMissing</li>
+						</ul>
+					</li>
+					<li>Checkvalidity()</li>
+					<li>setCustomValidity(&lsquo;Message&rsquo;)</li>
+				</ol>
+			</li>
+		</ul>
+		<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+		<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'><strong><u>Fetch</u></strong></p>
+		<ul style="list-style-type: disc;">
+			<li>credentials: &lsquo;include&rsquo;/&rsquo;same-origin&rsquo;/&rsquo;omit&rsquo;</li>
+			<li>Uploading json:<ol style="list-style-type: circle;">
+					<li>method: &lsquo;POST&rsquo;/&rsquo;PUT&rsquo;</li>
+					<li>headers: {Content-Type: &lsquo;application/json&rsquo;,},</li>
+					<li>body: JSON.stringify(data),</li>
+				</ol>
+			</li>
+			<li>Uploading file:<ol style="list-style-type: circle;">
+					<li>fileField = document.querySelector(&apos;input[type=&quot;file&quot;]&apos;);</li>
+					<li>method: &ldquo;PUT&rdquo;</li>
+					<li>body: formData</li>
+				</ol>
+			</li>
+		</ul>
+    </body>
+</html>
