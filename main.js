@@ -88,6 +88,11 @@ const links = [
 		week: 10,
 		label: "Team Activity",
 		filename: "quakeApp.html"
+	},
+	{
+		week: 12,
+		label: "Font Previewer",
+		filename: "fontPreviewer.html"
 	}
 ]
 
@@ -101,7 +106,9 @@ const links = [
 
 var j = 0;
 var i;
-for (i = 0; i < getWeekNumber(); i++) {        // create the week sections
+var weekNumber;
+var tabNumber = getWeekNumber();
+for (i = 0; i < tabNumber; i++) {        // create the week sections
 	var btn;
 
 	btn = document.createElement("ul");
@@ -115,16 +122,16 @@ for (i = 0; i < getWeekNumber(); i++) {        // create the week sections
 	
 	var a = document.createElement("a");
 	a.href = "#"
-	a.innerHTML = "Week " + (i + 1);
+	a.innerHTML = "Week " + weekNumber[i];
 	li.appendChild(a);
 
 
-	for (j; links[j].week - 1 == i; j++) {        // create the assignment sections
+	for (j; links[j].week == weekNumber[i]; j++) {        // create the assignment sections
 		var li = document.createElement("li");
 		btn.appendChild(li);
 		
 		var a = document.createElement("a");
-		a.href = "w" + (i+1) + "/" + links[j].filename;
+		a.href = "w" + weekNumber[i] + "/" + links[j].filename;
 		a.innerHTML = links[j].label;
 		a.setAttribute("tabindex", "0")
 		li.appendChild(a);
@@ -153,12 +160,14 @@ for (k = 0; k < dropDowns.length; k++) {
 }
 
 function getWeekNumber() {
-	var weekNumber;
+	weekNumber = [];
 	var i;
 	for (i = 0; i < links.length; i++) {
-		weekNumber = links[i].week;
+		if (!weekNumber.includes(links[i].week)){
+			weekNumber.push(links[i].week)
+		}
 	}
-	return weekNumber;
+	return weekNumber.length;
 }
 
 
