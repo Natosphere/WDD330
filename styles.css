@@ -3,6 +3,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
+	margin: 0px 100px 0px 100px;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -52,6 +53,10 @@ body {
   
 	.header-right {
 		float: none;
+	}
+	
+	body {
+		margin: 0px 0px 0px 0px;
 	}
 }
 
