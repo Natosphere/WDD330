@@ -29,6 +29,7 @@ window.onload = function() {
 
 
 async function getData() {
+	console.log(baseUrl + apiKey)
 	data = await getJSON(baseUrl + apiKey);
 }
 
