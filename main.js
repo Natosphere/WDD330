@@ -113,11 +113,12 @@ for (i = 0; i < tabNumber; i++) {        // create the week sections
 
 	btn = document.createElement("ul");
 	btn.classList.add("dropDownList");
-	btn.style.height = "43px";
-	document.body.appendChild(btn);
+	// btn.style.height = "43px";
+	document.querySelector('#main').appendChild(btn);
 	
 	var li = document.createElement("li");
 	li.classList.add("label1");
+	li.style.height = '43px';
 	btn.appendChild(li);
 	
 	var a = document.createElement("a");
@@ -127,14 +128,14 @@ for (i = 0; i < tabNumber; i++) {        // create the week sections
 
 
 	for (j; links[j].week == weekNumber[i]; j++) {        // create the assignment sections
-		var li = document.createElement("li");
-		btn.appendChild(li);
+		var li2 = document.createElement("li");
+		li.appendChild(li2);
 		
 		var a = document.createElement("a");
 		a.href = "w" + weekNumber[i] + "/" + links[j].filename;
 		a.innerHTML = links[j].label;
 		a.setAttribute("tabindex", "0")
-		li.appendChild(a);
+		li2.appendChild(a);
 		
 		if (j + 1 >= links.length) {
 			break;
@@ -147,15 +148,18 @@ const dropDowns = document.querySelectorAll(".dropDownList");
 var k;
 for (k = 0; k < dropDowns.length; k++) {
 	dropDowns[k].addEventListener('click', function() {
-		if (this.style.height == "43px") {
-			this.style.height = (this.childElementCount * (38 + 5)) + "px";
+		if (this.querySelector('.label1').style.height == "43px") {
+			this.querySelector('.label1').style.height = (this.querySelector('.label1').childElementCount * (38 + 5)) + "px";
+			this.querySelector('.label1').style.zIndex = '200';
 		} else {
-			this.style.height = 38 + 5 + "px";
+			this.querySelector('.label1').style.height = 38 + 5 + "px";
+			this.querySelector('.label1').style.removeProperty('z-index');
 		}
 	});
 	
 	dropDowns[k].addEventListener('focusout', function() {
-		setTimeout(() => {this.style.height = 38 + 5 + "px"}, 100)   // slight delay so that you can actually use the link before the menu closes
+		setTimeout(() => {this.querySelector('.label1').style.height = 38 + 5 + "px"; 
+			this.querySelector('.label1').style.removeProperty('z-index')}, 100)   // slight delay so that you can actually use the link before the menu closes
 	});
 }
 
