@@ -114,7 +114,7 @@ html, body { background: #1; }
 		  transition: height 0.3s ease;
 }
 
-.dropDownList li:first-child a:after {
+.dropDownList li:first-child > a:after {
   content: "\25BC";
   float: right;
   margin-left: -30px;
